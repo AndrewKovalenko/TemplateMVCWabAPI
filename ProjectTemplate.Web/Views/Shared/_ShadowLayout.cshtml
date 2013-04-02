@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+{
+    @RenderSection("scripts", required: false)
+}
+
+@section styles
+{
+    @RenderSection("styles", required: false)
+}
+
+
+<div class="shadow-container">
+    @RenderBody()
+</div>

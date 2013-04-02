@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles
+{
+    @Styles.Render("~/bundles/logoCommonStyles")
+    
+    @RenderSection("styles", required: false)
+}
+
+@section scripts
+{
+    @RenderSection("scripts", required: false)
+}
+
+<div class="center-container">
+    <img class="ProjectTemplate-logo" src="@Url.Content("~/Content/images/home/logo.png")" alt="ProjectTemplate" />
+    <div class="right-side-content">
+        @RenderSection("rightSideContent")
+    </div>
+</div>  

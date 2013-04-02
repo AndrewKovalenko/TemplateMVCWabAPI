@@ -1,0 +1,59 @@
+﻿@import "ProjectTemplate.less";
+
+div.sign-in-container{
+	span.caption{
+		color: @light-green;
+		font-size: 30px;
+		margin-right: 40px;
+	}
+
+	@width: 363px;	
+	@height: 160px;
+	
+	width: @width;
+	height: @height;
+	float: right;
+	padding: 0 10px;
+	
+
+	form#sign-in-form{
+		input[type=text], input[type=password]{
+			float: left;
+			width: (@width / 2) - 45px;
+			margin-right: 5px;
+		}
+
+		input[type=submit]{
+			width: 57px;
+			height: 19px;
+			background-image: url(/Content/images/home/button_log_in.png);
+			border: none;
+		}
+	}
+	
+	div.sign-in-error-message{
+		text-align: center;
+		font-size: 10px;
+		width: 345px;
+		margin: 0 auto;
+		display: none;
+		color: red;
+		overflow: hidden;
+		font-size: 12px;
+
+		span.fogot-password, a{
+			font-size: 16px;
+		}
+		div.forgot-password{
+			margin-top: 5px;
+			span.fogot-password{
+				color: black;
+			}
+		}
+	}
+	
+}
+
+div.sign-in-container.alert{
+	background-color: @alert-background;
+}

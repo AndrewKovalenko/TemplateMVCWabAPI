@@ -1,0 +1,25 @@
+﻿<div class="header">
+    <div class="sign-in-container">
+        <span class="caption">Sign In!</span>
+        <fb:login-button autologoutlink="true" perms="read_friendlists, create_event, email, publish_stream"></fb:login-button>
+        <div class="sign-in-form">
+            <form action="/" method="post" id="sign-in-form">
+            <input type="text" id="username" name="username" placeholder="email" />
+            <input type="password" id="password" name="password" placeholder="password" />
+            <input type="submit" value="" />
+            </form>
+        </div>
+        <div class="sign-in-error-message">
+            <div>
+                The username and/or password you entered are incorrect.
+            </div>
+            <div>
+                Please try again. (Make sure your caps lock is off.)
+            </div>
+            <div class="forgot-password">
+                <span class="fogot-password">Forgot your password?</span>
+                @Html.ActionLink("Request a new one.", "ResetPassword", "Account")
+            </div>
+        </div>
+    </div>
+</div>

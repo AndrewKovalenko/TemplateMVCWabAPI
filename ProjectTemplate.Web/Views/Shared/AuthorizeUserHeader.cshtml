@@ -1,0 +1,26 @@
+﻿<div class="authorizeed-header-container">
+    <div class="header">
+        <div class="logo">
+            <a href="/">
+                <img src="@Url.Content("~/Content/images/common/header-logo.jpg")" /></a>
+        </div>
+        <div class="container-search">
+            <div class="logout-block">
+                @Html.ActionLink("Log Out", "SignOut", "Account", null, new { id = "sign-out" })
+            </div>
+            <div class="search">
+                <form id="header-search">
+                <input type="image" src="@Url.Content("~/Content/images/common/search-button.jpg")"/>
+                <input type="text" value="" placeholder="members, events, needs, haves, faves, circles" />
+                </form>
+            </div>
+            <div class="menu-buttons">
+                <ul>
+                    <li class="my-profile"><a href="#"></a></li>
+                    <li class="others"><a href="#"></a></li>
+                    <li class="admin"><a href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

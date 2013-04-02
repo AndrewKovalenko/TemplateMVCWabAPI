@@ -1,0 +1,15 @@
+﻿@using ActionMailer.Net.Mvc
+@model ProjectTemplate.Web.Models.Email.ConfirmAccountModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm registration</title>
+</head>
+<body>
+    <div>
+        Dear @Model.FirstName @Model.LastName, this address was used to register on ProjectTemplate_URL_WILL_BE_HERE.
+        Please confirm your registration by following @Url.AbsoluteAction("ConfirmEmail", "Account", new { p = @Model.ConfirmationToken })
+    </div>
+</body>
+</html>

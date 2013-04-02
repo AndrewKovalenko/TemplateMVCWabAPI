@@ -1,0 +1,126 @@
+﻿.shadow-container{
+	font-size:12px;
+	font-weight:normal;
+	color:#002865;
+
+	.content-container, .top-content-container{
+		overflow:hidden;
+		.box-1, .box-2, .box-3{
+			padding:7px;
+
+			ul{
+				padding:0px;
+				margin:0px;
+				list-style:none;
+
+				li {
+					a{
+						color:#005188;
+						font:italic 12px arial;
+						text-decoration:none;
+					}
+				}
+			}
+		}
+		.box-1 {
+			background:#D2E4F0;
+			height:190px;
+			margin-top:10px;
+		}
+		.box-2 {
+			background:#DDDDDD;
+			height:300px;		
+		}
+		.box-3 {
+			background:#DDDDDD;
+			height:300px;		
+		}
+	}
+	.top-content-container{	
+		height:230px;
+
+		.welcome{
+			overflow:hidden;
+
+			.left-box{
+				background:#FFE49B;
+				border-radius:5px;
+				box-shadow:1px 1px 2px #C5C5C5;
+				float:left;
+				margin-right:10px;
+				width:225px;
+				height:215px; 
+			}
+
+			.welcome-text{
+				margin-left:230px;
+				margin-right:25px;
+
+				h4.green{
+					color:#7AC043;
+					font-size:18px;
+					margin:10px 0 0 0px;
+					font-weight:normal;
+				}
+				.tutorial-buttons-container{
+					width:200px;
+					margin:0 auto;
+				}
+			}
+		}		
+	}
+	.content-container{
+		min-height:500px;
+		padding-top:10px;
+
+		.left-column{
+			margin-right:210px;
+
+			h4.orange{
+				font-size:18px;
+				margin:20px 0 0px 0px;
+				color:#FF7A0F;
+			}
+
+			.more-info-link{
+				background:url(/Content/images/dashboard/more-info-icon.jpg) no-repeat 100% 2px;
+				padding-right:23px;
+				font-size:18px;
+				color:#C3C1C2;
+				text-decoration:none;
+			}
+
+			.dashboard-menu{
+				background:url(/Content/images/dashboard/bg_dashboardMenu.png) repeat-x 0 50%;			
+				border-radius:5px;
+				border:1px solid #CCCCCC;
+				width:930px;
+
+				ul{
+					margin:0;
+					padding:0;
+					overflow:hidden;
+					list-style:none;
+
+					li {
+						float:left;
+						background:url(/Content/images/dashboard/separator-dashboard-menu.png) no-repeat 0 6px;
+						padding: 0 30px 0 30px;
+						height:44px;
+						line-height:44px;
+
+						a {
+							text-decoration:none;
+							color:#87B747;
+							font-size:22px;
+						}
+					}
+					li.first{
+						background:none;
+						padding:0px 30px 0 30px;
+					}
+				}
+			}
+		}
+	}
+}

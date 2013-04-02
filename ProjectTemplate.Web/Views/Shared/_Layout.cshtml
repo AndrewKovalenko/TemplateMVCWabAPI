@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ProjectTemplate | @ViewBag.Title</title>
+    @Styles.Render("~/Content/themes/base/css")
+    @Styles.Render("~/bundles/commonStyles")
+    @RenderSection("styles", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/helpers")
+    @Scripts.Render("~/bundles/commonPlugins")
+    @Scripts.Render("~/bundles/common")
+    @Scripts.Render("~/bundles/signin")
+    @Scripts.Render("~/bundles/signout")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(function() {
+            window.ProjectTemplateApp.socialHelpers.InitializeFacebookApi(@System.Configuration.ConfigurationManager.AppSettings["FacebookAppId"]);
+        });
+    </script>
+</head>
+<body>
+    <div id="fb-root">
+    </div>
+    <div class="wrapper">
+        <div class="header-container">
+            @{
+                Html.RenderPartial(WebSecurity.IsAuthenticated ? "AuthorizeUserHeader" : "SignIn");
+            }
+        </div>
+        <div class="content-two-columns">
+            @RenderBody()
+            <script type="text/javascript">
+                jQuery.preloadImages = function () {
+                    var images = (typeof arguments[0] == 'object') ? arguments[0] : arguments;
+                    for (var i = 0; i < images.length; i++) {
+                        jQuery("<img>").attr("src", images[i]);
+                    }
+                };
+
+                $(window).load(function () {
+                    $.preloadImages("/Content/images/dashboard/my-profile-over.png", "/Content/images/dashboard/other-over.png", "/Content/images/dashboard/admin-over.png");
+                });
+            </script>
+        </div>
+        <div class="footer-separator">
+        </div>
+    </div>
+    <footer>
+        <div class="content-container">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+            <img src="@Url.Content("~/Content/images/common/footer.png")" alt="ProjectTemplate" />
+        </div>
+    </footer>
+</body>
+</html>

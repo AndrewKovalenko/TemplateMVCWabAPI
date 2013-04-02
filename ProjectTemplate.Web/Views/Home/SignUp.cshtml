@@ -1,0 +1,34 @@
+﻿@model ProjectTemplate.Web.Models.Account.SignUpModel
+@using (Html.BeginForm("SignUp", "Account", FormMethod.Post, new { @class = "sign-up-form" }))
+{
+    
+    @Html.ValidationSummary(true)
+    <div class="fields-row">
+        @Html.LabelFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.FirstName)
+        @Html.ValidationMessageFor(m => m.FirstName)
+    </div>
+    <div class="fields-row">
+        @Html.LabelFor(m => m.LastName)
+        @Html.TextBoxFor(m => m.LastName)
+        @Html.ValidationMessageFor(m => m.LastName)
+    </div>
+    <div class="fields-row">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+    <div class="fields-row">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+    <div class="fields-row">
+        @Html.LabelFor(m => m.RepeatedPassword)
+        @Html.PasswordFor(m => m.RepeatedPassword)
+        @Html.ValidationMessageFor(m => m.RepeatedPassword)
+    </div>
+    <div class="submit-row">
+        <input type="submit" value="" />
+    </div>
+}

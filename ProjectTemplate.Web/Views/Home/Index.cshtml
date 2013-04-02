@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_LogoPageLayout.cshtml";
+}
+
+@section styles
+{
+    @Styles.Render("~/bundles/homeStyles")
+
+}
+
+@section rightSideContent
+{
+    <span class="caption">Become a member!</span>
+    @Html.Partial("SignUp")
+}

@@ -1,0 +1,19 @@
+﻿@model string
+
+@{
+    ViewBag.Title = "Information";
+    Layout = "_Layout.cshtml";
+}
+
+@section styles
+{
+    @Styles.Render("~/bundles/information")
+}
+
+<div class="system-message">
+    <div class="header">
+        Information
+    </div>
+    <div class="message">@Model</div>
+</div>
+
