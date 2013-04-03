@@ -10,10 +10,10 @@ using ProjectTemplate.Infrastructure.DataBaseContext.Interfaces;
 
 namespace ProjectTemplate.Infrastructure.BaseRepository
 {
-    public class BaseRepository<T, TK> : IBaseRepository<T, TK> where T : BaseEntity<TK> where TK : struct 
+    public abstract class BaseRepository<T, TK> : IBaseRepository<T, TK> where T : BaseEntity<TK> where TK : struct 
     {
         private ProjectTemplateDbContext _dbContext;
-        private readonly IDbSet<T> _dbSet;
+        protected readonly IDbSet<T> DbSet;
         private readonly IDataBaseFactory _databaseFactory;
 
         protected ProjectTemplateDbContext DbContext
@@ -24,23 +24,18 @@ namespace ProjectTemplate.Infrastructure.BaseRepository
             }
         }
 
-        public BaseRepository(IDataBaseFactory databaseFactory)
+        protected BaseRepository(IDataBaseFactory databaseFactory)
         {
             _databaseFactory = databaseFactory;
-            _dbSet = DbContext.Set<T>();
+            DbSet = DbContext.Set<T>();
         }
 
 
-        public T GetById(TK key, params Expression<Func<T, object>>[] includeExpressions)
-        {
-            var set = _dbSet.Where(e => e.Id.Equals(key));
-            set = includeExpressions.Aggregate(set, (current, includeExpression) => current.Include(includeExpression));
-            return set.SingleOrDefault();
-        }
-
+        public abstract T GetById(TK key, params Expression<Func<T, object>>[] includeExpressions);
+        
         public virtual IQueryable<T> GetAll(params Expression<Func<T, object>>[] includeExpressions)
         {
-            var set = _dbSet.AsQueryable();
+            var set = DbSet.AsQueryable();
             return includeExpressions.Aggregate(set, (current, includeExpression) => current.Include(includeExpression));
         }
         
@@ -49,7 +44,7 @@ namespace ProjectTemplate.Infrastructure.BaseRepository
             if(insance.Id.Equals(default(TK)))
             {
                 SetTimestamps(insance, isNew: true);
-                _dbSet.Add(insance);
+                DbSet.Add(insance);
             }
             else
             {
@@ -64,7 +59,7 @@ namespace ProjectTemplate.Infrastructure.BaseRepository
 
         public virtual void Delete(T entity)
         {
-            _dbSet.Remove(entity);
+            DbSet.Remove(entity);
             _dbContext.SaveChanges();
         }
 
