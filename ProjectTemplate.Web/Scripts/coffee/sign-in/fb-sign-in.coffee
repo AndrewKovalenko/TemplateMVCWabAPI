@@ -25,12 +25,12 @@ SubmitLogin = (userInformation) ->
 
 window.ProjectTemplateApp.socialHelpers.InitializeFacebookApi = (appId) ->
 	window.fbAsyncInit = -> (FB.init(
-������������appId: appId,
-������������status: true, 
-������������cookie: true, 
-������������xfbml: true
-��������	)
-		FB.Event.subscribe('auth.login', (response) -> 
+			appId: appId,
+			status: true, 
+			cookie: true, 
+			xfbml: true)
+
+	FB.Event.subscribe('auth.login', (response) -> 
 			fbUserInformation = 
 				Uid: response.authResponse.userID
 
@@ -39,6 +39,7 @@ window.ProjectTemplateApp.socialHelpers.InitializeFacebookApi = (appId) ->
 				fbUserInformation.Email = userInfo.email
 				fbUserInformation.FirstName = userInfo.first_name
 				fbUserInformation.LastName = userInfo.last_name
+				fbUserInformation.FacebookUid = userInfo.id
 				SubmitLogin(fbUserInformation)
 			)
 		))	

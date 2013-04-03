@@ -48,7 +48,7 @@ namespace ProjectTemplate.Web.Controllers
         public HttpResponseMessage AuthorizeFbUser(FacebookUserInformation userInformation)
         {
             User fbProjectTemplateUser =
-                _userRepository.GetAll().SingleOrDefault(u => u.FacebookUid == userInformation.Uid);
+                _userRepository.GetAll().SingleOrDefault(u => u.FacebookUid == userInformation.FacebookUid);
 
             if (fbProjectTemplateUser == null)
             {
@@ -56,7 +56,7 @@ namespace ProjectTemplate.Web.Controllers
 
                 if (ProjectTemplateUser != null)
                 {
-                    ProjectTemplateUser.FacebookUid = userInformation.Uid;
+                    ProjectTemplateUser.FacebookUid = userInformation.FacebookUid;
                     _userRepository.SaveOrUpdate(ProjectTemplateUser);
                 }
                 else

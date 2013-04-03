@@ -1,4 +1,4 @@
-﻿(function() {
+(function() {
   var SubmitLogin;
 
   window.ProjectTemplateApp = window.ProjectTemplateApp || {};
@@ -7,8 +7,8 @@
 
   (function(document) {
     js;
-
     var id, js, ref;
+
     id = 'facebook-jssdk';
     ref = document.getElementsByTagName('script')[0];
     if (!document.getElementById(id)) {
@@ -45,6 +45,7 @@
       });
       return FB.Event.subscribe('auth.login', function(response) {
         var fbUserInformation;
+
         fbUserInformation = {
           Uid: response.authResponse.userID
         };
@@ -53,6 +54,7 @@
           fbUserInformation.Email = userInfo.email;
           fbUserInformation.FirstName = userInfo.first_name;
           fbUserInformation.LastName = userInfo.last_name;
+          fbUserInformation.FacebookUid = userInfo.id;
           return SubmitLogin(fbUserInformation);
         });
       });
