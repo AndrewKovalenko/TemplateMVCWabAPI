@@ -17,5 +17,10 @@ namespace ProjectTemplate.Domain.Entities
         public string Email { get; set; }
 
         public string FacebookUid { get; set; }
+        
+        public override int GetHashCode()
+        {
+            return Email.GetHashCode();
+        }
     }
 }

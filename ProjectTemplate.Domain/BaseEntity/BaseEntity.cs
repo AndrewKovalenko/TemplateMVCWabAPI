@@ -21,10 +21,7 @@ namespace ProjectTemplate.Domain.BaseEntity
             return obj.Id.Equals(Id) && obj.GetType() == GetType();
         }
 
-        public override int GetHashCode()
-        {
-            return Id.GetHashCode();
-        }
+        public abstract override int GetHashCode();
     }
 }
 
